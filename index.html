@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>G Smart Investor LLP – Financial Capacity Building</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #B8922A;
+      --gold-light: #D4A93A;
+      --gold-pale: #FBF3DC;
+      --dark: #FFFFFF;
+      --dark2: #F5F5F0;
+      --dark3: #ECECEA;
+      --white: #1A1A1A;
+      --text-muted: #666;
+      --green: #1E5C30;
+      --green-light: #2A7D42;
+      --border: rgba(0,0,0,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 6%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 1px 16px rgba(0,0,0,0.06);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: #333; font-weight: 400; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: #555; text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: var(--dark);
+      padding: 9px 22px; border-radius: 4px;
+      font-size: 0.82rem; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 6% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 40%, rgba(184,146,42,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(42,107,60,0.05) 0%, transparent 60%);
+    }
+    .hero-grid-lines {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(184,146,42,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,146,42,0.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold); font-size: 0.75rem;
+      letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
+      padding: 6px 14px; border-radius: 20px;
+      margin-bottom: 28px; width: fit-content;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-tag::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    h1 em { font-style: normal; color: var(--gold); }
+    .hero-sub {
+      max-width: 560px;
+      color: #555; font-size: 1.05rem;
+      margin-bottom: 44px;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--dark);
+      padding: 14px 32px; border-radius: 4px;
+      font-size: 0.9rem; font-weight: 700;
+      text-decoration: none; letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(201,168,76,0.4); color: var(--gold);
+      padding: 14px 32px; border-radius: 4px;
+      font-size: 0.9rem; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.04em;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 48px; margin-top: 72px; flex-wrap: wrap;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding-top: 36px;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+    .stat-item { }
+    .stat-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: var(--gold);
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 96px 6%; }
+    .section-tag {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700; line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-intro { color: #555; max-width: 560px; margin-bottom: 56px; font-size: 1rem; }
+    .divider {
+      width: 48px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 16px 0 20px;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--dark2); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+    }
+    .about-text p { color: #444; margin-bottom: 20px; }
+    .about-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+    .badge {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      color: var(--gold); font-size: 0.78rem;
+      padding: 6px 14px; border-radius: 3px; font-weight: 500;
+    }
+    .about-info-cards { display: flex; flex-direction: column; gap: 16px; }
+    .info-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px; border-radius: 4px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    }
+    .info-card-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+    .info-card-value { font-size: 0.95rem; font-weight: 500; color: #1A1A1A; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--dark); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .service-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      padding: 32px 28px; border-radius: 6px;
+      position: relative; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+    .service-icon { font-size: 2rem; margin-bottom: 18px; }
+    .service-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; color: #1A1A1A; }
+    .service-desc { color: #555; font-size: 0.88rem; line-height: 1.7; }
+    .service-price { margin-top: 18px; color: var(--gold); font-weight: 700; font-size: 1rem; }
+
+    /* ── REVENUE MODEL ── */
+    #revenue { background: var(--dark2); }
+    .revenue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .revenue-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .revenue-list li {
+      display: flex; align-items: center; gap: 14px;
+      background: #fff;
+      padding: 18px 22px; border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.07);
+      font-size: 0.92rem; color: #333;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .revenue-list li:hover { border-color: rgba(184,146,42,0.3); box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
+    .revenue-list li .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0;
+    }
+    .projections-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 1px 8px rgba(0,0,0,0.06); }
+    .projections-table th {
+      text-align: left; font-size: 0.72rem; color: #666;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      background: #f9f9f7;
+    }
+    .projections-table td {
+      padding: 14px 16px; font-size: 0.88rem; color: #333;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .projections-table tr:last-child td { border-bottom: none; }
+    .projections-table tr:hover td { background: rgba(184,146,42,0.04); }
+    .text-gold { color: var(--gold); font-weight: 600; }
+    .text-green { color: var(--green-light); font-weight: 600; }
+
+    /* ── MARKET ── */
+    #market { background: var(--dark); }
+    .market-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .market-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      padding: 36px 28px; border-radius: 6px; text-align: center;
+      position: relative; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .market-card.highlight {
+      background: linear-gradient(135deg, rgba(184,146,42,0.08), rgba(184,146,42,0.02));
+      border-color: rgba(184,146,42,0.3);
+    }
+    .market-label { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: #666; margin-bottom: 12px; }
+    .market-val { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+    .market-desc { font-size: 0.82rem; color: #666; }
+    .market-segments { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; }
+    .seg-item {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.07);
+      padding: 18px 20px; border-radius: 4px;
+      font-size: 0.88rem; color: #444;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .seg-item strong { color: var(--gold); display: block; margin-bottom: 4px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* ── FRANCHISE ── */
+    #franchise { background: var(--dark2); }
+    .franchise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .franchise-breakdown { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+    .breakdown-bar { }
+    .breakdown-label { display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 6px; color: #333; }
+    .breakdown-label span:last-child { color: var(--gold); font-weight: 600; }
+    .bar-track { height: 6px; background: rgba(0,0,0,0.1); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); transition: width 1s ease; }
+    .franchise-details { display: flex; flex-direction: column; gap: 20px; }
+    .fd-item { background: #fff; border: 1px solid rgba(0,0,0,0.07); padding: 22px 24px; border-radius: 4px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+    .fd-item h4 { color: var(--gold); margin-bottom: 8px; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em; }
+    .fd-item p { color: #555; font-size: 0.88rem; }
+
+    /* ── TRACTION ── */
+    #traction { background: var(--dark); }
+    .traction-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .traction-card {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      padding: 32px 24px; border-radius: 6px; text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .traction-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+    .traction-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .traction-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1;
+    }
+    .traction-desc { font-size: 0.82rem; color: #666; margin-top: 6px; }
+
+    /* ── IMPACT ── */
+    #impact {
+      background: linear-gradient(135deg, #f0ede4 0%, #e8e4d8 100%);
+      text-align: center;
+    }
+    .impact-inner { max-width: 720px; margin: 0 auto; }
+    .impact-pillars { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 48px; }
+    .pillar {
+      background: rgba(184,146,42,0.1);
+      border: 1px solid rgba(184,146,42,0.25);
+      padding: 20px 28px; border-radius: 6px;
+      font-size: 0.88rem; font-weight: 500;
+      color: #5A4010;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--dark2); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 16px; }
+    .ci-item {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.07);
+      padding: 20px 22px; border-radius: 4px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .ci-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .ci-label { font-size: 0.72rem; color: #666; text-transform: uppercase; letter-spacing: 0.1em; }
+    .ci-value { font-size: 0.95rem; color: #1A1A1A; margin-top: 2px; }
+    .ci-value a { color: var(--gold); text-decoration: none; }
+    .ci-value a:hover { text-decoration: underline; }
+
+    /* ── CONTACT FORM ── */
+    .contact-form-wrap {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 8px; padding: 36px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .contact-form-wrap h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: #1A1A1A;
+      margin-bottom: 6px;
+    }
+    .contact-form-wrap p.form-sub { font-size: 0.85rem; color: #666; margin-bottom: 24px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .form-group label { font-size: 0.76rem; font-weight: 600; color: #444; letter-spacing: 0.06em; text-transform: uppercase; }
+    .form-group input, .form-group select {
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 4px; padding: 11px 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; color: #1A1A1A;
+      background: #FAFAFA;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184,146,42,0.1);
+      background: #fff;
+    }
+    .form-group input::placeholder { color: #aaa; }
+    .form-submit {
+      width: 100%; background: var(--gold); color: #fff;
+      border: none; border-radius: 4px; padding: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s, transform 0.15s;
+      margin-top: 6px;
+    }
+    .form-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .form-success {
+      display: none; text-align: center; padding: 24px;
+      color: var(--green-light); font-weight: 600; font-size: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1A1A1A;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 36px 6%;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--gold); }
+    .footer-copy { font-size: 0.78rem; color: #888; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: #888; text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .about-grid, .revenue-grid, .franchise-grid, .contact-grid { grid-template-columns: 1fr; }
+      .market-cards { grid-template-columns: 1fr; }
+      .market-segments { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-stats { gap: 28px; }
+    }
+    /* ── MODAL OVERLAY ── */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: #fff;
+      border-radius: 10px;
+      width: 100%; max-width: 580px;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+      animation: modalIn 0.3s ease;
+      position: relative;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.94) translateY(16px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-header {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+    }
+    .modal-header-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 700; color: #1A1A1A; margin-bottom: 4px;
+    }
+    .modal-header-text p { font-size: 0.84rem; color: #666; }
+    .modal-close {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: #f5f5f5; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: #555; flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: #eee; }
+    .modal-body { padding: 24px 32px 32px; }
+    .modal-gold-bar {
+      height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light), transparent);
+      border-radius: 2px; margin-bottom: 24px;
+    }
+    .mform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .mform-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+    .mform-group label {
+      font-size: 0.74rem; font-weight: 600; color: #444;
+      letter-spacing: 0.07em; text-transform: uppercase;
+    }
+    .mform-group input, .mform-group select {
+      border: 1.5px solid rgba(0,0,0,0.13);
+      border-radius: 5px; padding: 11px 13px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem; color: #1A1A1A;
+      background: #FAFAFA; outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .mform-group input:focus, .mform-group select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(184,146,42,0.12);
+      background: #fff;
+    }
+    .mform-group input::placeholder { color: #bbb; }
+    .mform-required { color: #c0392b; margin-left: 2px; }
+    .mform-error {
+      display: none; color: #c0392b;
+      font-size: 0.8rem; margin-bottom: 12px;
+      padding: 10px 14px;
+      background: #fff5f5; border: 1px solid #fcc;
+      border-radius: 4px;
+    }
+    .mform-submit {
+      width: 100%; background: var(--gold); color: #fff;
+      border: none; border-radius: 5px; padding: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      cursor: pointer; margin-top: 4px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .mform-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .mform-note { font-size: 0.75rem; color: #999; text-align: center; margin-top: 12px; }
+    .mform-success {
+      display: none; text-align: center;
+      padding: 32px 20px;
+    }
+    .mform-success .success-icon { font-size: 3rem; margin-bottom: 14px; }
+    .mform-success h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: #1A1A1A; margin-bottom: 8px;
+    }
+    .mform-success p { font-size: 0.88rem; color: #666; }
+    .mform-success .close-btn {
+      display: inline-block; margin-top: 20px;
+      background: var(--gold); color: #fff;
+      padding: 10px 28px; border-radius: 4px;
+      font-size: 0.85rem; font-weight: 600; cursor: pointer;
+      border: none; font-family: 'DM Sans', sans-serif;
+    }
+
+    @media (max-width: 540px) {
+      .modal-box { border-radius: 8px; }
+      .modal-header, .modal-body { padding-left: 20px; padding-right: 20px; }
+      .mform-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">G Smart <span>Investor LLP</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#market">Market</a></li>
+    <li><a href="#franchise">Franchise</a></li>
+    <li><a href="#traction">Traction</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#" class="nav-cta" onclick="openModal(); return false;">Invest Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-tag">DPIIT Recognised · MCA Registered · Est. 2018</div>
+  <h1>Financial Capacity<br/>Building for<br/><em>Bharat's Future</em></h1>
+  <p class="hero-sub">
+    G Smart Investor LLP empowers rural investors, farmers, and MSMEs through consultancy,
+    location-based services, and innovative income models — promoting financial inclusion across India.
+  </p>
+  <div class="hero-btns">
+    <a href="#services" class="btn-primary">Explore Services</a>
+    <a href="#" class="btn-outline" onclick="openModal(); return false;">Invest With Us</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-val">2,500+</div>
+      <div class="stat-label">Farmers Served</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">₹100 Cr</div>
+      <div class="stat-label">Vision Project</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">1 Cr+</div>
+      <div class="stat-label">Potential Users</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">2018</div>
+      <div class="stat-label">Founded</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-tag">About Us</div>
+      <h2>Empowering Rural &amp; Semi-Urban India</h2>
+      <div class="divider"></div>
+      <p>G Smart Investor LLP is a fintech-driven consultancy and investment platform built to bridge the financial gap for India's rural communities, MSMEs, and youth.</p>
+      <p>We provide accessible investment models, business consultancy, and a growing franchise network — the <strong style="color:var(--gold)">Global Smart Market</strong> — that brings economic opportunity to Tier 2/3 cities and beyond.</p>
+      <p>Our mission aligns with <em>Vikshit Bharat</em> — a developed India with zero poverty and strong economic growth driven from the grassroots.</p>
+      <div class="about-badges">
+        <span class="badge">DPIIT Cert. DIPP30770</span>
+        <span class="badge">MCA Registered</span>
+        <span class="badge">LLP No. AAN-7914</span>
+        <span class="badge">Est. 18-12-2018</span>
+      </div>
+    </div>
+    <div class="about-info-cards">
+      <div class="info-card">
+        <div class="info-card-label">Founder Director</div>
+        <div class="info-card-value">Shivram Shivhare</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Co-Founder Director</div>
+        <div class="info-card-value">Shriman Narayan Agrawal</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Industry</div>
+        <div class="info-card-value">Marketing · Consultancy · Fintech</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Registered Office</div>
+        <div class="info-card-value">Sewagram, Khajuraho, Block Rajnagar, Chhatarpur, M.P. – 471606</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-label">Startup Recognition Date</div>
+        <div class="info-card-value">15 January 2019</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-tag">Core Services</div>
+  <h2>What We Offer</h2>
+  <div class="divider"></div>
+  <p class="section-intro">Low-cost entry points, high-value consultancy, and a scalable digital platform designed for every segment of India.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">📋</div>
+      <div class="service-title">Business Registration</div>
+      <div class="service-desc">Quick and affordable business registration portal for MSMEs, startups, and individuals entering the formal economy.</div>
+      <div class="service-price">Starting ₹118</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💼</div>
+      <div class="service-title">Investment Consultancy</div>
+      <div class="service-desc">Expert financial guidance and investment planning for retail investors, farmers, and small business owners seeking stable income growth.</div>
+      <div class="service-price">₹1,000 + GST</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌐</div>
+      <div class="service-title">Global Business Center</div>
+      <div class="service-desc">A ₹100 Crore vision project connecting Indian MSMEs to global markets through the Global Smart Market franchise network.</div>
+      <div class="service-price">Phase 1: ₹5 Cr</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👥</div>
+      <div class="service-title">Employment Program</div>
+      <div class="service-desc">Creating direct and indirect employment opportunities for rural youth and women through training, franchise, and enterprise projects.</div>
+      <div class="service-price">1,000+ Jobs Target</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏪</div>
+      <div class="service-title">Franchise Opportunity</div>
+      <div class="service-desc">Join the Global Smart Market as a franchise partner. Invest ₹30 Lakhs, receive company setup support, and earn 40% profit share with 15-20% ROI annually.</div>
+      <div class="service-price">₹30L Partner Entry</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <div class="service-title">Enterprise Projects</div>
+      <div class="service-desc">Biodiversity, natural farming, women farmer training, and other social enterprise projects driving grassroots economic transformation.</div>
+      <div class="service-price">Community-Driven</div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE MODEL -->
+<section id="revenue" style="background:var(--dark2);">
+  <div class="section-tag">Business Model</div>
+  <h2>Revenue Streams &amp; Projections</h2>
+  <div class="divider"></div>
+  <div class="revenue-grid">
+    <div>
+      <p class="section-intro" style="margin-bottom:28px;">Multiple diversified revenue streams ensure sustainable, scalable growth across our ecosystem.</p>
+      <ul class="revenue-list">
+        <li><span class="dot"></span> Registration Fees — ₹500/user</li>
+        <li><span class="dot"></span> Consultancy Fees — ₹1,500/client</li>
+        <li><span class="dot"></span> One-Time Investment — ₹1,00,000/user (8–10% annual ROI)</li>
+        <li><span class="dot"></span> Referral Bonuses — ₹5,000/active referral</li>
+        <li><span class="dot"></span> Franchise Revenue — 60% profit share, Global Smart Market</li>
+        <li><span class="dot"></span> Enterprise &amp; Trade Hub Projects</li>
+      </ul>
+    </div>
+    <div>
+      <p style="color:var(--text-muted);font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">5-Year Financial Projections</p>
+      <table class="projections-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Users</th>
+            <th>Revenue</th>
+            <th>Net Profit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2025–26</td><td>3,000</td><td class="text-gold">₹30 Cr</td><td class="text-green">₹10 Cr</td></tr>
+          <tr><td>2026–27</td><td>10,000</td><td class="text-gold">₹100 Cr</td><td class="text-green">₹30 Cr</td></tr>
+          <tr><td>2027–28</td><td>50,000</td><td class="text-gold">₹500 Cr</td><td class="text-green">₹200 Cr</td></tr>
+          <tr><td>2028–29</td><td>2,00,000</td><td class="text-gold">₹2,000 Cr</td><td class="text-green">₹1,000 Cr</td></tr>
+          <tr><td>2029–30</td><td>5,00,000</td><td class="text-gold">₹5,000 Cr</td><td class="text-green">₹2,500 Cr</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section id="market">
+  <div class="section-tag">Market Opportunity</div>
+  <h2>A Massive Untapped Market</h2>
+  <div class="divider"></div>
+  <p class="section-intro">Targeting rural India, Tier 2/3 cities, and MSMEs — a segment with 10 million+ potential users and negligible formal fintech penetration.</p>
+  <div class="market-cards">
+    <div class="market-card">
+      <div class="market-label">Total Addressable Market</div>
+      <div class="market-val">10M+</div>
+      <div class="market-desc">Potential users across India at ₹1,00,000/user</div>
+    </div>
+    <div class="market-card highlight">
+      <div class="market-label">Serviceable Available Market</div>
+      <div class="market-val">2M</div>
+      <div class="market-desc">Users with digital access currently targetable</div>
+    </div>
+    <div class="market-card">
+      <div class="market-label">Serviceable Obtainable Market</div>
+      <div class="market-val">3,000</div>
+      <div class="market-desc">Target users by March 2026, scaling to 5 Lakh by 2030</div>
+    </div>
+  </div>
+  <div class="market-segments">
+    <div class="seg-item"><strong>Geographic</strong>Tier 2/3 cities, rural India, Block Rajnagar (M.P.) and beyond</div>
+    <div class="seg-item"><strong>Demographic</strong>Age 25–50 yrs, low to mid income groups</div>
+    <div class="seg-item"><strong>Psychographic</strong>Value trust, financial security, community-oriented</div>
+    <div class="seg-item"><strong>Behavioral</strong>Digital adopters, referral-driven, WhatsApp-native</div>
+  </div>
+</section>
+
+<!-- FRANCHISE -->
+<section id="franchise">
+  <div class="section-tag">Franchise Program</div>
+  <h2>Global Smart Market</h2>
+  <div class="divider"></div>
+  <div class="franchise-grid">
+    <div>
+      <p style="color:#bbb;margin-bottom:32px;">A ₹1 Crore location-based retail franchise model bringing branded, organized retail to rural and semi-urban India — while offering franchise partners 15–20% annual ROI.</p>
+      <div class="franchise-breakdown">
+        <div class="breakdown-bar">
+          <div class="breakdown-label"><span>Company Investment</span><span>₹70 Lakhs (70%)</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+        </div>
+        <div class="breakdown-bar" style="margin-top:16px;">
+          <div class="breakdown-label"><span>Franchise Partner</span><span>₹30 Lakhs (30%)</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:30%;background:linear-gradient(90deg,#3D9C58,#5ABF75)"></div></div>
+        </div>
+      </div>
+      <div style="margin-top:32px;padding:22px 24px;background:var(--dark3);border-radius:4px;border:1px solid rgba(201,168,76,0.2);">
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.1em;">Profit Split</div>
+        <div style="font-size:1.5rem;font-family:'Playfair Display',serif;font-weight:700;">60% <span style="color:var(--text-muted);font-size:1rem;font-weight:400;">Company</span> &nbsp;·&nbsp; 40% <span style="color:var(--gold)">Partner</span></div>
+        <div style="margin-top:10px;font-size:0.85rem;color:#555;">Expected ROI: <strong style="color:var(--green-light)">15–20% annually</strong></div>
+      </div>
+    </div>
+    <div class="franchise-details">
+      <div class="fd-item">
+        <h4>Company Responsibilities</h4>
+        <p>Store setup, branding, interior design, supply chain, and operations management across all franchise locations.</p>
+      </div>
+      <div class="fd-item">
+        <h4>Partner Responsibilities</h4>
+        <p>Provide 5,000–8,000 sq.ft. property and manage day-to-day store operations locally.</p>
+      </div>
+      <div class="fd-item">
+        <h4>Total Project Cost</h4>
+        <p>₹1 Crore per unit. Phase 1 funding requirement: <strong style="color:var(--gold)">₹5 Crore</strong> for initial rollout and expansion.</p>
+      </div>
+      <div class="fd-item">
+        <h4>Sectors &amp; Products</h4>
+        <p>Retail, consultancy services, digital access points, agriculture input, and local enterprise support hubs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACTION -->
+<section id="traction">
+  <div class="section-tag">Our Traction</div>
+  <h2>Proven on the Ground</h2>
+  <div class="divider"></div>
+  <p class="section-intro">Real impact with real communities — government-recognized and field-validated demand.</p>
+  <div class="traction-grid">
+    <div class="traction-card">
+      <div class="traction-icon">🌾</div>
+      <div class="traction-num">2,500+</div>
+      <div class="traction-desc">Farmers in Block Rajnagar, Chhatarpur, M.P. engaged and validated</div>
+    </div>
+    <div class="traction-card">
+      <div class="traction-icon">🏛️</div>
+      <div class="traction-num">DPIIT</div>
+      <div class="traction-desc">Officially recognised by Dept. for Promotion of Industry &amp; Internal Trade</div>
+    </div>
+    <div class="traction-card">
+      <div class="traction-icon">📜</div>
+      <div class="traction-num">MCA</div>
+      <div class="traction-desc">Registered under Ministry of Corporate Affairs, Govt. of India</div>
+    </div>
+    <div class="traction-card">
+      <div class="traction-icon">🌿</div>
+      <div class="traction-num">3+</div>
+      <div class="traction-desc">Active field projects: Biodiversity, Natural Farming, Women Farmer Training</div>
+    </div>
+    <div class="traction-card">
+      <div class="traction-icon">📅</div>
+      <div class="traction-num">2018</div>
+      <div class="traction-desc">Incorporated and operational since December 18, 2018</div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="impact-inner">
+    <div class="section-tag" style="text-align:center">Our Vision</div>
+    <h2>Zero Poverty. 1,000+ Jobs. Financial Inclusion for All.</h2>
+    <div class="divider" style="margin:16px auto 20px"></div>
+    <p style="color:#555;max-width:560px;margin:0 auto;">
+      G Smart Investor LLP envisions a <strong style="color:#1A1A1A">Vikshit Bharat</strong> — a developed India where every individual, regardless of geography or income, has access to formal financial tools, stable income, and growth opportunities.
+    </p>
+    <div class="impact-pillars">
+      <div class="pillar">🧑‍🌾 Rural Empowerment</div>
+      <div class="pillar">💰 Passive Income Models</div>
+      <div class="pillar">🏭 MSME Growth</div>
+      <div class="pillar">👩 Women Inclusion</div>
+      <div class="pillar">🌏 Global Market Access</div>
+      <div class="pillar">📈 Financial Literacy</div>
+    </div>
+  </div>
+</section>
+
+<!-- FUND REQUIREMENT -->
+<section style="background:#F0EDE4;" id="invest">
+  <div class="section-tag">Investment Opportunity</div>
+  <h2>Seed &amp; Growth Funding</h2>
+  <div class="divider"></div>
+  <p class="section-intro">We are seeking ₹1 Crore in growth funding and welcoming seed investors for equity/profit-sharing participation.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:860px;">
+    <div style="background:#fff;border:1px solid rgba(0,0,0,0.08);padding:28px 24px;border-radius:6px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+      <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">40%</div>
+      <div style="font-size:0.82rem;color:#555;margin-top:6px;">Business Expansion &amp; Franchise Setup</div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(0,0,0,0.08);padding:28px 24px;border-radius:6px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+      <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">25%</div>
+      <div style="font-size:0.82rem;color:#555;margin-top:6px;">Technology Development &amp; Platform</div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(0,0,0,0.08);padding:28px 24px;border-radius:6px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+      <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">20%</div>
+      <div style="font-size:0.82rem;color:#555;margin-top:6px;">Marketing &amp; Outreach</div>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(0,0,0,0.08);padding:28px 24px;border-radius:6px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+      <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">15%</div>
+      <div style="font-size:0.82rem;color:#555;margin-top:6px;">Working Capital &amp; Contingency</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-tag">Get In Touch</div>
+  <h2>Connect With Us</h2>
+  <div class="divider"></div>
+  <p class="section-intro">Reach out to us directly or click <strong>Invest Now</strong> to register your interest.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:900px;">
+    <div class="ci-item">
+      <div class="ci-icon">📞</div>
+      <div>
+        <div class="ci-label">Phone</div>
+        <div class="ci-value"><a href="tel:+919893993488">+91 98939 93488</a></div>
+      </div>
+    </div>
+    <div class="ci-item">
+      <div class="ci-icon">✉️</div>
+      <div>
+        <div class="ci-label">Email</div>
+        <div class="ci-value"><a href="mailto:globalsmartinvestor@gmail.com">globalsmartinvestor@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="ci-item">
+      <div class="ci-icon">👤</div>
+      <div>
+        <div class="ci-label">Founder</div>
+        <div class="ci-value">Shivram Shivhare</div>
+      </div>
+    </div>
+    <div class="ci-item">
+      <div class="ci-icon">📍</div>
+      <div>
+        <div class="ci-label">Registered Office</div>
+        <div class="ci-value">Sewagram, Khajuraho, Block Rajnagar,<br/>Dist. Chhatarpur, M.P. – 471606</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:40px;">
+    <a href="#" class="btn-primary" onclick="openModal(); return false;">Register Your Interest →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">G Smart Investor LLP</div>
+  <div class="footer-copy">© 2024 G Smart Investor LLP · DPIIT Cert. DIPP30770 · LLP No. AAN-7914</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#franchise">Franchise</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<!-- ── INVEST NOW MODAL ── -->
+<div class="modal-overlay" id="investModal" onclick="handleOverlayClick(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-header">
+      <div class="modal-header-text">
+        <h3>Investor Registration</h3>
+        <p>Fill in your details — our team will reach out within 24 hrs.</p>
+      </div>
+      <button class="modal-close" onclick="closeModal()" title="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-gold-bar"></div>
+
+      <!-- FORM FIELDS -->
+      <div id="mform-fields">
+        <div class="mform-row">
+          <div class="mform-group">
+            <label>Full Name <span class="mform-required">*</span></label>
+            <input type="text" id="m-name" placeholder="Ramesh Kumar" />
+          </div>
+          <div class="mform-group">
+            <label>Mobile Number <span class="mform-required">*</span></label>
+            <input type="tel" id="m-mobile" placeholder="+91 98765 43210" maxlength="13" />
+          </div>
+        </div>
+
+        <div class="mform-row">
+          <div class="mform-group">
+            <label>Email Address <span class="mform-required">*</span></label>
+            <input type="email" id="m-email" placeholder="you@example.com" />
+          </div>
+          <div class="mform-group">
+            <label>Date of Birth</label>
+            <input type="date" id="m-dob" />
+          </div>
+        </div>
+
+        <div class="mform-row">
+          <div class="mform-group">
+            <label>Aadhaar Number <span class="mform-required">*</span></label>
+            <input type="text" id="m-aadhaar" placeholder="XXXX XXXX XXXX" maxlength="14" />
+          </div>
+          <div class="mform-group">
+            <label>PAN Number <span class="mform-required">*</span></label>
+            <input type="text" id="m-pan" placeholder="ABCDE1234F" maxlength="10" />
+          </div>
+        </div>
+
+        <div class="mform-row">
+          <div class="mform-group">
+            <label>City / Town</label>
+            <input type="text" id="m-city" placeholder="Chhatarpur" />
+          </div>
+          <div class="mform-group">
+            <label>State</label>
+            <input type="text" id="m-state" placeholder="Madhya Pradesh" />
+          </div>
+        </div>
+
+        <div class="mform-group">
+          <label>Interest Area</label>
+          <select id="m-interest">
+            <option value="">-- Select an option --</option>
+            <option>Investment Consultancy</option>
+            <option>Franchise Partnership</option>
+            <option>Business Registration</option>
+            <option>Employment Program</option>
+            <option>Seed / Growth Funding</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="mform-error" id="m-error"></div>
+        <button class="mform-submit" onclick="submitModal()">Submit Registration →</button>
+        <p class="mform-note">🔒 Your information is safe and will not be shared with third parties.</p>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="mform-success" id="mform-success">
+        <div class="success-icon">🎉</div>
+        <h4>Registration Received!</h4>
+        <p>Thank you for your interest in G Smart Investor LLP.<br/>Our team will contact you within <strong>24–48 hours</strong>.</p>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* ── MODAL LOGIC ── */
+  function openModal() {
+    document.getElementById('investModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    // Reset form every time it opens
+    document.getElementById('mform-fields').style.display = 'block';
+    document.getElementById('mform-success').style.display = 'none';
+    document.getElementById('m-error').style.display = 'none';
+    ['m-name','m-mobile','m-email','m-dob','m-aadhaar','m-pan','m-city','m-state'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('m-interest').selectedIndex = 0;
+  }
+  function closeModal() {
+    document.getElementById('investModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('investModal')) closeModal();
+  }
+  // Close on ESC key
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  function submitModal() {
+    const name    = document.getElementById('m-name').value.trim();
+    const mobile  = document.getElementById('m-mobile').value.trim();
+    const email   = document.getElementById('m-email').value.trim();
+    const aadhaar = document.getElementById('m-aadhaar').value.trim();
+    const pan     = document.getElementById('m-pan').value.trim();
+    const errEl   = document.getElementById('m-error');
+
+    if (!name)                          { showMErr('Please enter your full name.'); return; }
+    if (!mobile || mobile.replace(/\D/g,'').length < 10)
+                                        { showMErr('Please enter a valid 10-digit mobile number.'); return; }
+    if (!email || !email.includes('@')) { showMErr('Please enter a valid email address.'); return; }
+    if (aadhaar.replace(/\s/g,'').length !== 12)
+                                        { showMErr('Please enter a valid 12-digit Aadhaar number.'); return; }
+    if (!pan || pan.length !== 10)      { showMErr('Please enter a valid 10-character PAN number.'); return; }
+
+    errEl.style.display = 'none';
+    document.getElementById('mform-fields').style.display = 'none';
+    document.getElementById('mform-success').style.display = 'block';
+  }
+  function showMErr(msg) {
+    const el = document.getElementById('m-error');
+    el.textContent = msg; el.style.display = 'block';
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // Auto-format Aadhaar
+  document.getElementById('m-aadhaar').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'').substring(0,12);
+    this.value = v.replace(/(\d{4})(?=\d)/g,'$1 ');
+  });
+  // Auto-uppercase PAN
+  document.getElementById('m-pan').addEventListener('input', function() {
+    this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g,'').substring(0,10);
+  });
+  // Mobile: numbers only
+  document.getElementById('m-mobile').addEventListener('input', function() {
+    this.value = this.value.replace(/[^\d+\s-]/g,'');
+  });
+
+  // Animate bars on scroll
+  const bars = document.querySelectorAll('.bar-fill');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.style.width; // trigger reflow
+      }
+    });
+  }, { threshold: 0.5 });
+  bars.forEach(b => observer.observe(b));
+
+  // Fade-in on scroll for cards
+  const cards = document.querySelectorAll('.service-card, .traction-card, .market-card, .fd-item, .info-card');
+  const cardObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        cardObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  cards.forEach((c, i) => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(20px)';
+    c.style.transition = `opacity 0.5s ${i * 0.06}s ease, transform 0.5s ${i * 0.06}s ease`;
+    cardObs.observe(c);
+  });
+</script>
+</body>
+</html>
