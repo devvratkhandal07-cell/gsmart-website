@@ -1091,5 +1091,152 @@
     cardObs.observe(c);
   });
 </script>
+  <!-- AI CHATBOT -->
+<div id="chatbot-btn">🤖</div>
+
+<div id="chatbot-box">
+  <div id="chatbot-header">G Smart AI Assistant</div>
+  <div id="chatbot-messages">
+    <p><b>Bot:</b> Welcome to G Smart Investor LLP. How can I help you today?</p>
+  </div>
+
+  <div id="chatbot-input-area">
+    <input type="text" id="userInput" placeholder="Ask about services, franchise, investment..." />
+    <button id="sendBtn">Send</button>
+  </div>
+</div>
+
+<style>
+#chatbot-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+width:65px;
+height:65px;
+border-radius:50%;
+background:#B8922A;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+cursor:pointer;
+z-index:99999;
+box-shadow:0 5px 20px rgba(0,0,0,.25);
+}
+
+#chatbot-box{
+display:none;
+position:fixed;
+right:20px;
+bottom:95px;
+width:360px;
+height:520px;
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 0 25px rgba(0,0,0,.25);
+z-index:99999;
+}
+
+#chatbot-header{
+background:#B8922A;
+color:#fff;
+padding:15px;
+font-weight:bold;
+font-size:16px;
+}
+
+#chatbot-messages{
+height:410px;
+overflow-y:auto;
+padding:10px;
+color:#111;
+font-size:14px;
+}
+
+#chatbot-input-area{
+display:flex;
+border-top:1px solid #ddd;
+}
+
+#userInput{
+flex:1;
+padding:12px;
+border:none;
+outline:none;
+}
+
+#sendBtn{
+background:#B8922A;
+color:white;
+border:none;
+padding:12px 18px;
+cursor:pointer;
+}
+</style>
+
+<script>
+const chatbotBtn = document.getElementById("chatbot-btn");
+const chatbotBox = document.getElementById("chatbot-box");
+
+chatbotBtn.onclick = () => {
+  chatbotBox.style.display =
+    chatbotBox.style.display === "block" ? "none" : "block";
+};
+
+async function sendMessage() {
+  const input = document.getElementById("userInput");
+  const msg = input.value.trim();
+
+  if (!msg) return;
+
+  const messages = document.getElementById("chatbot-messages");
+
+  messages.innerHTML += `<p><b>You:</b> ${msg}</p>`;
+
+  input.value = "";
+
+  try {
+    const response = await fetch(
+      "https://gsmart-chatbot.onrender.com/chat",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: msg
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    messages.innerHTML +=
+      `<p><b>Bot:</b> ${data.response}</p>`;
+
+  } catch (error) {
+
+    messages.innerHTML += `
+      <p><b>Bot:</b> Unable to connect right now.<br>
+      Contact: +91 98939 93488<br>
+      Email: globalsmartinvestor@gmail.com</p>
+    `;
+  }
+
+  messages.scrollTop = messages.scrollHeight;
+}
+
+document.getElementById("sendBtn")
+.addEventListener("click", sendMessage);
+
+document.getElementById("userInput")
+.addEventListener("keypress", function(e){
+  if(e.key === "Enter"){
+    sendMessage();
+  }
+});
+</script>
 </body>
 </html>
