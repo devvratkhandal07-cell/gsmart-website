@@ -1122,8 +1122,6 @@
     cardObs.observe(c);
   });
 </script>
-</body>
-</html>
   <!-- AI CHATBOT -->
 <div id="chatbot-btn">🤖</div>
 
@@ -1248,6 +1246,7 @@ async function sendMessage() {
 
     messages.innerHTML +=
       `<p><b>Bot:</b> ${data.response}</p>`;
+    messages.scrollTop = messages.scrollHeight;
 
   } catch (error) {
 
